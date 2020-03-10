@@ -37,7 +37,7 @@
             onSubmit = (e) => {
                 e.preventDefault();
                 // 정답일 시
-                if (pareseInt(this.state.value) === this.state.first * this.state.second) {
+                if (parseInt(this.state.value) === this.state.first * this.state.second) {
                     this.setState({
                         result: this.state.first + '*' + this.state.second + '은 =' + this.state.value + '정답!',
                         first: Math.ceil(Math.random() * 0),
@@ -75,10 +75,7 @@
                     <div>
                         <div>{this.state.first} 곱하기 {this.state.second} 는?</div>
                         <form onSubmit={this.onSubmit}>
-                            <input type="string" 
-                                    value={this.state.value} 
-                                    onChange={this.onChange}
-                            />
+                            <input type="number" value={this.state.value} onChange={this.onChange} />
                             <button>입력 !</button>
                         </form>
                         <div>{this.state.result}</div>
