@@ -33,11 +33,17 @@
                 // 태그 사이 중괄호 적으면 자바스크립트 쓸 수 있음
                 // 꼭 닫는 태그 넣어줘야함 (JSX = JS + XML 이기 때문에 (xml))
                 // HTML 속성 - html 속성에 state 적고 싶을 땐 똑같이 중괄호
+                // 숫자 안써짐 ->  state 바꿔줘야됨 -> setState / 바꾸는 이벤트
                 return (
                     <div>
                         <div>{this.state.first} 곱하기 {this.state.second}</div>
                         <form>
-                            <input type="number" value={this.state.value} />
+                            <input type="string" 
+                                    value={this.state.value} 
+                                    onChange={(e) => this.setState({ value: e.target.value})}
+                                    // input.onChange = (e) => { console.log(e.target.value )}
+                                    // function() === ()
+                            />
                             <button>입력 !</button>
                         </form>
                         <div>{this.state.result}</div>
