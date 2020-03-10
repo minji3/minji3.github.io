@@ -12,13 +12,14 @@
     <div id="root"></div>
     <script type="text/babel">
         class GuGuDan extends React.Component {
-            constructor(props) {
-                super(props);
-                // 바뀌는 요소 state 먼저 넣고 시작
-                // 1. 바뀌는 요소 먼저 넣기 (숫자 요소만 바뀜)
-                // 아직 모르는 값은 비워 둠 (결과값)
+            // constructor(props) {
+            //     super(props);
+            // 바뀌는 요소 state 먼저 넣고 시작
+            // 1. 바뀌는 요소 먼저 넣기 (숫자 요소만 바뀜)
+            // 아직 모르는 값은 비워 둠 (결과값)
 
-                this.state = {
+            // constructor, super, this.state -> state로 생략
+            state = {
                     first: Math.ceil(Math.random() * 9),
                     second: Math.ceil(Math.random() * 9),
                     value: '',
@@ -34,24 +35,45 @@
             // *****
 
             // 함수 부분을 따로 빼서 깔끔하게 정리 (자바스크립트 로직은 클래스의 메서드로 들어감)
+            // 함수 따로 뺴서 작성할 땐 무조건 arr Func / this가 달라지는 것 때문에
+            // 직접 만드는 함수는 무조건 arr Func
             onSubmit = (e) => {
                 e.preventDefault();
                 // 정답일 시
                 if (parseInt(this.state.value) === this.state.first * this.state.second) {
-                    this.setState({
-                        result: this.state.first + '*' + this.state.second + '은 = ' + this.state.value + ' 정답!',
-                        first: Math.ceil(Math.random() * 0),
-                        second: Math.ceil(Math.random() * 9),
-                        value: '',
+                    // 현재 / 미래 값이 같이 있어서 헷갈림. 
+                    // 구별하기 위해 setState 안에 함수를 넣고 그안에서 return
+                    // 새로운 state를 return 하는 함수, 예전 함수 사용 가능
+                    // prevState - 바꾸기 전 상태 값
+
+                    // 예전 상태 값 다음 상태값에 활용 가능
+                    // setState 비동기
+                    // setState / 예전 state 값으로 새로운 state 값을 만들 때는 return 값을 만들어서 사용하기
+                    // this.setState((prevState) => {
+                    //     return {
+                    //         value: prevState.value + 1
+                    //     }
+                    // })
+
+                    // 안에 꼭 이전 값을 담는 prevState를 사용할 것
+                    this.setState((prevState) => {
+                        return {
+                            result: ' 정답!' + prevState.value,
+                            first: Math.ceil(Math.random() * 0),
+                            second: Math.ceil(Math.random() * 9),
+                            value: '',
+                        };
                     });
                     // 틀릴 시에
                     // 땡이랑, 밸류 값 비우기
+                    this.input.focus();
                 } else {
                     this.setState({
                         result: '땡',
                         // 안적어주면 안바뀐다는 말임
                         value: '',
                     })
+                    this.input.focus();
                 }
             }
 
@@ -59,7 +81,10 @@
                 this.setState({ value: e.target.value})
             }
 
-            render() {
+            input;
+            
+            // arr Func 안써도 됨
+            
                 // 2. 태그를 넣어줌
                 // 소괄호안에 적어도 되고, 아니면 그냥 바로 적어도 됨. 스타일 차이임
                 // return <div></div> / return () <div></div>
@@ -74,12 +99,14 @@
 
                 // ------
                 // 예전에는 div로 꼭 감싸줬어야 했음.
-                // React.Fragment -> div 대신 적어줌 . babel 지원 안함 (원래는 <>)
+                // React.Fragment -> div 대신 적어줌 . babel 지원 안함 (원래는 <></>) // babel 오류구나 알면 됨
+
+            render() {
                 return (
                     <React.Fragment>
                         <div>{this.state.first} 곱하기 {this.state.second} 는?</div>
                         <form onSubmit={this.onSubmit}>
-                            <input type="number" value={this.state.value} onChange={this.onChange} />
+                            <input ref={(c) => { this.input = c; }} type="number" value={this.state.value} onChange={this.onChange} />
                             <button>입력 !</button>
                         </form>
                         <div>{this.state.result}</div>
