@@ -11,65 +11,58 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        class GuGuDan extends React.Component {
-            // constructor(props) {
-            //     super(props);
-            // 바뀌는 요소 state 먼저 넣고 시작
-            // 1. 바뀌는 요소 먼저 넣기 (숫자 요소만 바뀜)
-            // 아직 모르는 값은 비워 둠 (결과값)
 
-            // constructor, super, this.state -> state로 생략
+        // 기본 작성 순서
+        // 1. 바뀔 만한 요소 state 먼저 지정 (추후에 결과값 나오는 것은 비워두면 됨)
+        // 2. 각 state가 들여갈 요소 태그에 넣기
+
+        class GuGuDan extends React.Component {
+            // *** constructor(props) {
+            //     super(props);
+            //          this.state -> state로 생략
+            // 실무에선 대부분 생략
             state = {
                 first: Math.ceil(Math.random() * 9),
                 second: Math.ceil(Math.random() * 9),
                 value: '',
                 result: '',
             };
-
-            // *****
-            // 변할 것을 모두 state 로 만들고, 변할 것 위치에 맞게 넣어줌
-            // input 주의, 맘대로 바꿀 수 없고 onChange로 직접 vaule로 바꿔야함
-            // (변하는 부분 완전히 컨트롤 하는 것)
-            // 이벤트리스너 camelCase / 함수로 뺄 수 있다! (자바스크립트일 뿐)
-            // *****
-
+            // *** input
+            // 맘대로 바꿀 수 없고 onChange로 직접 value 수정 = 변하는 부분은 코드로 수동 컨트롤
+            
+            // *** 함수를 밖에 작성하는 이유
             // 함수 부분을 따로 빼서 깔끔하게 정리 (자바스크립트 로직은 클래스의 메서드로 들어감)
-            // 함수 따로 뺴서 작성할 땐 무조건 arr Func / this가 달라지는 것 때문에
-            // 직접 만드는 함수는 무조건 arr Func
+            // 함수 따로 뺴서 작성할 땐 무조건 arr Func / this가 달라지기 때문에
+            // DOM에 직접 접근하고 싶을 땐, ref 붙여서 접근
+            // * 성능 관련 이슈 - render 안에 넣으면 render 시마다 계속 실행되기 때문에
             onSubmit = (e) => {
                 e.preventDefault();
-                // 정답일 시
                 if (parseInt(this.state.value) === this.state.first * this.state.second) {
-                    // 현재 / 미래 값이 같이 있어서 헷갈림. 
-                    // 구별하기 위해 setState 안에 함수를 넣고 그안에서 return
-                    // 새로운 state를 return 하는 함수, 예전 함수 사용 가능
-                    // prevState - 바꾸기 전 상태 값
-
-                    // 예전 상태 값 다음 상태값에 활용 가능
+                    // *** prevState
+                    // 현재 값 구별하기 위해 setState 안에 함수를 넣고 그안에서 return
+                    // 새로운 state를 return 하는 함수, 예전 값 사용 가능
+                    // prevState - 이전 값
                     // setState 비동기
-                    // setState / 예전 state 값으로 새로운 state 값을 만들 때는 return 값을 만들어서 사용하기
+                    // 예전 state 값으로 새로운 state 값을 만들 때는 return 값을 만들어서 사용
                     // this.setState((prevState) => {
                     //     return {
                     //         value: prevState.value + 1
                     //     }
                     // })
 
-                    // 안에 꼭 이전 값을 담는 prevState를 사용할 것
                     this.setState((prevState) => {
                         return {
-                            result: ' 정답!' + prevState.value,
+                            result: ' 정답! ' + prevState.value,
                             first: Math.ceil(Math.random() * 0),
                             second: Math.ceil(Math.random() * 9),
                             value: '',
                         };
                     });
-                    // 틀릴 시에
-                    // 땡이랑, 밸류 값 비우기
                     this.input.focus();
                 } else {
                     this.setState({
                         result: '땡',
-                        // 안적어주면 안바뀐다는 말임
+                        // '' -> 변화 없음
                         value: '',
                     })
                     this.input.focus();
@@ -81,32 +74,28 @@
             }
 
             input;
-            
-            // arr Func 안써도 됨
-            
-                // 2. 태그를 넣어줌
-                // 소괄호안에 적어도 되고, 아니면 그냥 바로 적어도 됨. 스타일 차이임
-                // return <div></div> / return () <div></div>
-                // 태그 사이 중괄호 적으면 자바스크립트 쓸 수 있음
-                // 꼭 닫는 태그 넣어줘야함 (JSX = JS + XML 이기 때문에 (xml))
-                // HTML 속성 - html 속성에 state 적고 싶을 땐 똑같이 중괄호
-                // 숫자 안써짐 ->  state 바꿔줘야됨 -> setState / 바꾸는 이벤트
-                // input 상태도 함부로 바꿀 수 없음 / 모두 컨트롤 해줘야 바뀜 = 에러가 덜 남 (코딩으로 숫자를 바꿈)
-                // this 는 클래스의 this -> class 내
-                // state는 자동적으로 바꾸는 것 보단 직접 바꿀 수 있는 것을 넣어야 함. (수동)
-                // Form submit 시 동작 내용
+            // *** render
+            // setState 작동 시마다 재실행
+            // 소괄호안에 적어도 되고, 아니면 그냥 바로 적어도 됨. 스타일 차이
+            // - return <div></div> / return () <div></div>
+            // 태그 사이 중괄호 적으면 자바스크립트 쓸 수 있음 {}
+            // 꼭 닫는 태그 넣어줘야함 (JSX = JS + XML 이기 때문에 (xml))
+            // HTML 속성 - html 속성에 state 주고 싶을 땐 똑같이 중괄호
+            // this 는 클래스의 this -> class 내
+            // state는 자동적으로 바꾸는 것 보단 직접 바꿀 수 있는 것을 넣어야 함. (수동)
 
-                // ------
-                // 예전에는 div로 꼭 감싸줬어야 했음.
-                // React.Fragment -> div 대신 적어줌 . babel 지원 안함 (원래는 <></>) // babel 오류구나 알면 됨
-
+            // *** <></> / <React.Fragment></React.Fragment>
+            // React 초기에는 div로 꼭 감싸줬어야 했음.
+            // <></> === <React.Fragment></React.Fragment> === <div></div> 같은 역할.
+            // <></> - babel 1 지원 안함 / babel 2 지원
+            // <React.Fragment></React.Fragment> - babel 1 지원
             render() {
                 return (
                     <React.Fragment>
-                        <div>{this.state.first} 곱하기 {this.state.second} 는?</div>
+                        <div>{this.state.first} * {this.state.second}</div>
                         <form onSubmit={this.onSubmit}>
                             <input ref={(c) => { this.input = c; }} type="number" value={this.state.value} onChange={this.onChange} />
-                            <button>입력 !</button>
+                            <button>제출</button>
                         </form>
                         <div>{this.state.result}</div>
                     </React.Fragment>
@@ -115,8 +104,8 @@
         }
     </script>
     <script type="text/babel">
+        // 여러개의 컴포넌트를 불러올 시에는 꼭 묶어줄 것
         ReactDOM.render(<div><GuGuDan /><GuGuDan /><GuGuDan /></div>, document.querySelector('#root'));
-        // 여러개 넣을 땐 div로 묶어줄 것
     </script>
 </body>
 </html>
