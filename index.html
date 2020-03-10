@@ -39,7 +39,7 @@
                 // 정답일 시
                 if (parseInt(this.state.value) === this.state.first * this.state.second) {
                     this.setState({
-                        result: this.state.first + '*' + this.state.second + '은 =' + this.state.value + '정답!',
+                        result: this.state.first + '*' + this.state.second + '은 = ' + this.state.value + ' 정답!',
                         first: Math.ceil(Math.random() * 0),
                         second: Math.ceil(Math.random() * 9),
                         value: '',
@@ -85,7 +85,8 @@
         }
     </script>
     <script type="text/babel">
-        ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
+        ReactDOM.render(<div><GuGuDan /><GuGuDan /><GuGuDan /></div>, document.querySelector('#root'));
+        // 여러개 넣을 땐 div로 묶어줄 것
     </script>
 </body>
 </html>
