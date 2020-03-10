@@ -12,14 +12,15 @@
     <div id="root"></div>
     <script type="text/babel">
         // React: class -> className / for -> htmlFor
+        
         // # Class 
         // state가 바뀌면 render 함수만 재실행
         // class GuGuDan extends React.Component {
         // }
+        
         // # Hooks
         // state가 바뀌면 함수 자체가 재실행되어 좀 느릴 수 있음
-        // Functional Component (함수 컴퍼넌트) / 보통 setState 를 사용할 일 없을 때 사용했었음
-        // function / state 추가
+        // Functional Component (함수 컴퍼넌트) / 보통 setState 를 사용할 일 없을 때 사용했었음, 현재 function / state 추가
         // state / ref 기능 추가
         // state를 하나로 묶지 않고 분리 ex)setFirst, setSecond
         // React.useState(초기값)
@@ -30,14 +31,13 @@
             const [value, setValue] = React.useState('');
             const [result, setResult] = React.useState('');
             // state에 무엇이든 들어갈 수 있음
-            // setState로 할 경우 모두 하나씩 바꿔줘야 함. 지양
+            // setState로 할 경우 모두 하나씩 바꿔줘야 함. 지정 안할시 값 X. 지양
             // const [state, setState] = React.useState({
             //     first: Math.ceil ~
             // })
 
-
             // ref(초기값)
-            // useRef로 DOM에 접근
+            // useRef로 DOM 접근
             // inputRef.current / current 꼭 붙여야 함
             const inputRef = React.useRef(null)
 
@@ -77,11 +77,10 @@
         // 함수로 작성
         // ex) this.setState.value -> setValue
         const onChangeInput = (e) => {
-            setValue({ value: e.target.value})
+            setvalue(e.target.value)
         }
     </script>
     <script type="text/babel">
-        // 여러개의 컴포넌트를 불러올 시에는 꼭 묶어줄 것
         ReactDOM.render(<div><GuGuDan /><GuGuDan /><GuGuDan /></div>, document.querySelector('#root'));
     </script>
 </body>
