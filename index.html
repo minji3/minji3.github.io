@@ -73,8 +73,8 @@
                 // Form submit 시 동작 내용
                 return (
                     <div>
-                        <div>{this.state.first} 곱하기 {this.state.second}</div>
-                        <form onSubmit={onSubmit}>
+                        <div>{this.state.first} 곱하기 {this.state.second} 는?</div>
+                        <form onSubmit={this.onSubmit}>
                             <input type="string" 
                                     value={this.state.value} 
                                     onChange={this.onChange}
