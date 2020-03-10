@@ -31,12 +31,12 @@
                 // 소괄호안에 적어도 되고, 아니면 그냥 바로 적어도 됨. 스타일 차이임
                 // return <div></div> / return () <div></div>
                 // 태그 사이 중괄호 적으면 자바스크립트 쓸 수 있음
+                // 꼭 닫는 태그 넣어줘야함 (JSX = JS + XML 이기 때문에 (xml))
+                // HTML 속성 - html 속성에 state 적고 싶을 땐 똑같이 중괄호
                 return (
                     <div>
                         <div>{this.state.first} 곱하기 {this.state.second}</div>
                         <form>
-                        // 꼭 닫는 태그 넣어줘야함 (JSX = JS + XML 이기 때문에 (xml))
-                        // HTML 속성 - html 속성에 state 적고 싶을 땐 똑같이 중괄호
                             <input type="number" value={this.state.value} />
                             <button>입력 !</button>
                         </form>
