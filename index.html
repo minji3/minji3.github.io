@@ -70,15 +70,14 @@
             return (
                 <React.Fragment>
                     <div>{first} * {second}</div>
-                    <form onSubmit={onSubmitForm}></form>
+                    <form onSubmit={onSubmitForm}>
                         <input ref={inputRef} type="number" onChange={onChangeInput} value={value} />
-                    <button>제출</button>
+                        <button>제출</button>
+                    </form>
                     <div>{result}</div>
                 </React.Fragment>
             )
-        
         }
-
 
     </script>
     <script type="text/babel">
