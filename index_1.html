@@ -26,39 +26,6 @@
                 };
             }
 
-            // *****
-            // 변할 것을 모두 state 로 만들고, 변할 것 위치에 맞게 넣어줌
-            // input 주의, 맘대로 바꿀 수 없고 onChange로 직접 vaule로 바꿔야함
-            // (변하는 부분 완전히 컨트롤 하는 것)
-            // 이벤트리스너 camelCase / 함수로 뺄 수 있다! (자바스크립트일 뿐)
-            // *****
-
-            // 함수 부분을 따로 빼서 깔끔하게 정리 (자바스크립트 로직은 클래스의 메서드로 들어감)
-            onSubmit = (e) => {
-                e.preventDefault();
-                // 정답일 시
-                if (pareseInt(this.state.value) === this.state.first * this.state.second) {
-                    this.setState({
-                        result: this.state.first + '*' + this.state.second + '은 =' + this.state.value + '정답!',
-                        first: Math.ceil(Math.random() * 0),
-                        second: Math.ceil(Math.random() * 9),
-                        value: '',
-                    });
-                    // 틀릴 시에
-                    // 땡이랑, 밸류 값 비우기
-                } else {
-                    this.setState({
-                        result: '땡',
-                        // 안적어주면 안바뀐다는 말임
-                        value: '',
-                    })
-                }
-            }
-
-            onChange = (e) => {
-                this.setState({ value: e.target.value})
-            }
-
             render() {
                 // 2. 태그를 넣어줌
                 // 소괄호안에 적어도 되고, 아니면 그냥 바로 적어도 됨. 스타일 차이임
@@ -74,10 +41,19 @@
                 return (
                     <div>
                         <div>{this.state.first} 곱하기 {this.state.second}</div>
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            if (pareseInt(value) === this.state.first * this.state.second) {
+                                this.setState({
+
+                                })
+                            }}
+                        }>
                             <input type="string" 
                                     value={this.state.value} 
-                                    onChange={this.onChange}
+                                    onChange={(e) => this.setState({ value: e.target.value})}
+                                    // input.onChange = (e) => { console.log(e.target.value )}
+                                    // function() === ()
                             />
                             <button>입력 !</button>
                         </form>
