@@ -40,6 +40,32 @@
             // useRef로 DOM 접근
             // inputRef.current / current 꼭 붙여야 함
             const inputRef = React.useRef(null)
+            const onSubmitForm = (e) => {
+                e.preventDefault();
+                if (parseInt(value) === first * second) {
+                    setResult((prevResult) => {
+                        return ' 정답! ' + prevResult
+                    });
+                    // == setCouner((c) => c + 1)
+                    // class -> 한 번에 실행하기 위해 기존에는 setState 묶어서 처리하였음
+                    // Hooks -> set~ 모아서 한 번에 처리
+                    setFirst(Math.ceil(Math.random() * 9));
+                    setSecond(Math.ceil(Math.random() * 9));
+                    setValue('');
+                    // ref 
+                    inputRef.current.focus();
+                } else {
+                    setResult('땡');
+                    setValue('');
+                    inputRef.current.focus();
+                }
+            }
+
+            // 함수로 작성
+            // ex) this.setState.value -> setValue
+            const onChangeInput = (e) => {
+                setvalue(e.target.value)
+            }
 
             return (
                 <React.Fragment>
@@ -53,32 +79,7 @@
         
         }
 
-        const onSubmitForm = (e) => {
-            e.preventDefault();
-            if (parseInt(value) === first * second) {
-                setResult((prevResult) => {
-                    return ' 정답! ' + prevResult
-                });
-                // == setCouner((c) => c + 1)
-                // class -> 한 번에 실행하기 위해 기존에는 setState 묶어서 처리하였음
-                // Hooks -> set~ 모아서 한 번에 처리
-                setFirst(Math.ceil(Math.random() * 9));
-                setSecond(Math.ceil(Math.random() * 9));
-                setValue('');
-                // ref 
-                inputRef.current.focus();
-            } else {
-                setResult('땡');
-                setValue('');
-                inputRef.current.focus();
-            }
-        }
 
-        // 함수로 작성
-        // ex) this.setState.value -> setValue
-        const onChangeInput = (e) => {
-            setvalue(e.target.value)
-        }
     </script>
     <script type="text/babel">
         ReactDOM.render(<div><GuGuDan /><GuGuDan /><GuGuDan /></div>, document.querySelector('#root'));
