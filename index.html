@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class GuGuDan extends React.Component {
+            constructor(props) {
+                super(props);
+                // 바뀌는 요소 state 먼저 넣고 시작
+                // 1. 바뀌는 요소 먼저 넣기 (숫자 요소만 바뀜)
+                // 아직 모르는 값은 비워 둠 (결과값)
+
+                this.state = {
+                    first: Math.ceil(Math.random() * 9),
+                    second: Math.ceil(Math.random * 9),
+                    value: '',
+                    result: '',
+                };
+            }
+
+            render() {
+                // 2. 태그를 넣어줌
+                // 소괄호안에 적어도 되고, 아니면 그냥 바로 적어도 됨. 스타일 차이임
+                // return <div></div> / return () <div></div>
+                // 태그 사이 중괄호 적으면 자바스크립트 쓸 수 있음
+                return (
+                    <div>
+                        <div>{this.state.first} 곱하기 {this.state.second}</div>
+                        <form>
+                        // 꼭 닫는 태그 넣어줘야함 (JSX = JS + XML 이기 때문에 (xml))
+                        // HTML 속성 - html 속성에 state 적고 싶을 땐 똑같이 중괄호
+                            <input type="number" value={this.state.value} />
+                            <button>입력 !</button>
+                        </form>
+                        <div>{this.state.result}</div>
+                    </div>
+                );
+            }
+        }
+    </script>
+    <script type="text/bable">
+        ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
+    </script>
+</body>
+</html>
