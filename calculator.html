@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <input type="number" disabled />
+            <button type="button" value="AC">AC</button>
+            <button type="button" value="pm">+/-</button>
+            <button type="button" value="%">%</button>
+            <button type="button" value="/">/</button>
+
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="*">*</button>
+
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-">-</button>
+
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="+">+</button>
+
+            <button type="button" value="0">0</button>
+            <button type="button" value=".">.</button>
+            <button type="button" value="=">=</button>
+    </div>
+    <script>
+        // 변수 선언
+        let sum, num, operator, _init;
+        let current = 0;
+        let numArray = new Array;
+        const result = document.querySelector('input');
+        const btns = document.querySelectorAll('button');
+
+        for (const btn of btns) {
+            btn.addEventListener('click', function(){
+                if(isNaN(this.value) !== true){
+                    if(_init !== 1){
+                        console.log("num reset")
+                        num = this.value;
+                        _init = 1;
+                    }else{
+                        num = num + this.value;
+                        console.log(num)
+                    }
+                }else{
+                    _init = 0;
+                    if(current === 1){
+                        console.log("urrent === 1")
+                        numArray.push(num)
+                        calculator(numArray[0], numArray[1], this.value)
+                    }else{
+                        console.log(this.value)
+                        current++;
+                        console.log("current is ", current)
+                        numArray.push(num)
+                        console.log(numArray)
+                    }
+                }
+            });
+        }
+
+        const calculator = (f, o, s) => {
+            console.log("calculator")
+            console.log(f, o, s)
+        }
+
+    </script>
+</body>
+</html>
