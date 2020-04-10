@@ -10,6 +10,10 @@
 
 
     </style>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrap">
@@ -19,7 +23,22 @@
             aaa
     </div>
     <script>
-alert(screen.height)
+    var height = window.innerHeight;
+    var a = setInterval(function() {
+        $(window).scrollTop(-1);
+        resize();
+    }, 500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
+
+    $(window).on('resize', function() {
+        resize();
+    });
+
+    var resize = function() {
+        if(window.innerHeight != height) {
+            height = window.innerHeight;
+            $('.wrap').css('height', height + 'px');
+        }
+    };
     </script>
 </body>
 </html>
