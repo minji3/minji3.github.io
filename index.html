@@ -32,7 +32,7 @@
         resize();
     }, 500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
 
-            setTimeout(function(){clearInterval(a)}, 500)
+            setTimeout(function(){clearInterval(a)}, 10)
    
     var resize = function() {
         alert(window.innerHeight)
