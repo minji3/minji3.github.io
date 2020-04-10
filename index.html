@@ -24,12 +24,11 @@
     <script>
         $(document).ready(function(){
     var height = window.innerHeight;
-            
-            alert("height    " + height);
+    alert("first height " + height);
     var a = setInterval(function() {
         $(window).scrollTop(-1);
         resize();
-        console.log("resize")
+        alert("second height " + height);
     },  500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
 
             
@@ -39,6 +38,7 @@
         if(window.innerHeight != height) {
             height = window.innerHeight;
             $('.wrap').css('height', height + 'px');
+            clearInterval(a)
         }
     };})
     </script>
