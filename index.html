@@ -22,24 +22,24 @@
     </div>
     
     <script>
-        $(document).ready(function(){
-    var height = window.innerHeight;
-    alert("first height " + height);
-    var a = setInterval(function() {
-        $(window).scrollTop(-1);
-        resize();
-        alert("second height " + height);
-    },  500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
+    $(document).ready(function(){
+        var height = window.innerHeight;
+        alert("first height " + height);
+        var a = setInterval(function() {
+            $(window).scrollTop(-1);
+            resize();
+        },  500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
 
-            
-   
-    var resize = function() {
-        alert(window.innerHeight)
-        if(window.innerHeight != height) {
-            height = window.innerHeight;
-            $('.wrap').css('height', height + 'px');
-            clearInterval(a)
-        }
+
+
+        var resize = function() {
+            alert(window.innerHeight)
+            if(window.innerHeight != height) {
+                height = window.innerHeight;
+                alert("second height " + height);
+                $('.wrap').css('height', height + 'px');
+                clearInterval(a)
+            }
     };})
     </script>
 </body>
