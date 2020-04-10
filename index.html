@@ -17,11 +17,10 @@
 </head>
 <body>
     <div class="wrap">
-        <div class="inner"></div>
+        <div style="background:#000"></div>
+        <div style="background:#ccc"></div>
     </div>
-    <div class="height">
-            aaa
-    </div>
+    
     <script>
         $(document).ready(function(){
     var height = window.innerHeight;
@@ -30,9 +29,9 @@
     var a = setInterval(function() {
         $(window).scrollTop(-1);
         resize();
-    }, 10); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
+    },  5); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
 
-            setTimeout(function(){clearInterval(a)}, 10)
+            setTimeout(function(){clearInterval(a)}, 5)
    
     var resize = function() {
         alert(window.innerHeight)
