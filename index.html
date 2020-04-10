@@ -25,6 +25,8 @@
     <script>
         $(document).ready(function(){
     var height = window.innerHeight;
+            
+            alert("height" + height);
     var a = setInterval(function() {
         $(window).scrollTop(-1);
         resize();
@@ -33,6 +35,7 @@
             setTimeout(function(){clearInterval(a)}, 500)
    
     var resize = function() {
+        alert(window.innerHeight)
         if(window.innerHeight != height) {
             height = window.innerHeight;
             $('.wrap').css('height', height + 'px');
