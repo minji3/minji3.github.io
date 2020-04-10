@@ -30,7 +30,7 @@
     var a = setInterval(function() {
         $(window).scrollTop(-1);
         resize();
-    }, 500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
+    }, 10); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
 
             setTimeout(function(){clearInterval(a)}, 10)
    
