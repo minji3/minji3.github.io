@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         html,body{margin:0;padding:0;width:100%;height:100%}
-        .wrap{width:100%;height:100%;background:blue}
+        .wrap div{width:100%;height:100%;background:blue}
 
 
     </style>
@@ -29,9 +29,9 @@
     var a = setInterval(function() {
         $(window).scrollTop(-1);
         resize();
-    },  10); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
+    },  500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
 
-            setTimeout(function(){clearInterval(a)}, 10)
+            setTimeout(function(){clearInterval(a)}, 500)
    
     var resize = function() {
         alert(window.innerHeight)
