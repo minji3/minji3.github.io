@@ -19,10 +19,9 @@
             aaa
     </div>
     <script>
-        window.setTimeout(myFunc, 1);
-        function myFunc(){
-           alert(window.outerHeight)
-        }
+
+        var addressBarSize = parseFloat(getComputedStyle(document.documentElement).perspective) - document.documentElement.clientHeight
+        console.log(addressBarSize)
     </script>
 </body>
 </html>
