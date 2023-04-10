@@ -1,45 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>Document</title>
-    <style>
-        html,body{margin:0;padding:0;width:100%;height:100%}
-        .wrap div{width:100%;height:100%;background:blue}
-
-
-    </style>
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+    <title>하연 & 창윤</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./resources/styles/main.css">
 </head>
 <body>
-    <div class="wrap">
-        <div style="background:#000"></div>
-        <div style="background:#ccc"></div>
-    </div>
+    <div class="container">
+        <div class="section-cover">
+            <div class="image">
+                <img src="./resources/images/main.jpg" alt="">
+            </div>
+            <div class="title">
+                Wedding day
+            </div>
+        </div>
+        <!-- 인사글 -->
+        <div class="section-invitation">
+            <p class="title main-title t">invite you</p>
+            <div class="desc l">
+                이날, 우리 둘만의 이야기가 시작됩니다.<br />
+                사랑은 소유하는 것이 아닌 함께하는 것임을 알고<br />
+                마주 잡은 두 손을 놓지 않으며<br />서로를 이끌며 함께하겠습니다.<br />
+                축복의 마음을 담아 함께해 주시길 바랍니다.<br />
+                당신의 따뜻한 축복을 영원히 기억하겠습니다.
+            </div>
+            <div class="row l">
+                <span>창윤</span><span>하연 올림</span>
+            </div>
+        </div>
+
+        <!-- 혼주 신랑 신부 이름 -->
+        <div class="section-info col">
+            <a class="phone row l" href="tel:01030018710"><span>박동철</span><span>정낭경</span> 의 아들 <span class="name">창윤</span></a> <!--  -->
+            <a class="phone row l" href="tel:01037398491"><span>임채홍</span><span>정용희</span> 의 딸 <span class="name">하연</span></a> <!-- 010 3739 8491 -->
+        </div>
+
+        <!-- 일자 / 달력 추가 -->
+        <div class="section-date">
+            <div class="calendar l">
+                <div class="month">6월</div>
+                <div class="week">
+                    <span>일</span>
+                    <span>월</span>
+                    <span>화</span>
+                    <span>수</span>
+                    <span>목</span>
+                    <span>금</span>
+                    <span>토</span>
+                </div>
+                <div class="week">
+                    <span class="grey">28</span>
+                    <span class="grey">29</span>
+                    <span class="grey">30</span>
+                    <span class="grey">31</span>
+                    <span>1</span>
+                    <span>2</span>
+                    <span class="black">3</span>
+                    
+                </div>
+                <div class="week">
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                    
+                </div>
+                <div class="week">
+                    <span>11</span>
+                    <span>12</span>
+                    <span>13</span>
+                    <span>14</span>
+                    <span>15</span>
+                    <span>16</span>
+                    <span>17</span>
+                </div>
+                <div class="week">
+                    <span>18</span>
+                    <span>19</span>
+                    <span>20</span>
+                    <span>21</span>
+                    <span>22</span>
+                    <span>23</span>
+                    <span>24</span>
+                </div>
+                <div class="week">
+                    <span>25</span>
+                    <span>26</span>
+                    <span>27</span>
+                    <span>28</span>
+                    <span>29</span>
+                    <span>30</span>
+                </div>
+            </div>
+            <div class="title l">2023년 6월 3일 토요일 오후 3시 30분</div>
+            <p class="l">채플웨딩홀 아벤티움</p>
+        </div>
+
+        <!-- 갤러리 -->
+        <div class="section-slide">
+            <p class="title main-title t">gallery</p>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-1.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-2.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-3.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-4.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-5.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-6.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-7.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-8.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-9.jpg" alt=""></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-10.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-11.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-12.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-13.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-14.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-15.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-16.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-17.jpg" alt=""></div>
+                        <div class="slide-image"><img src="../resources/images/thumb-slide-18.jpg" alt=""></div>
+                    </div>
+   
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- 지도 -->
+        <div class="section-location">
+            <div class="location">
+                <div class="title main-title t">location</div>
+                <div class="location-map l"></div>
+                <div class="align l">
+                    <div class="title">
+                        채플웨딩홀 아벤티움<br />
+                        서울 중구 청파로 464
+                    </div>
+                    <a class="info-tel" href="tel:02-313-2480">02-313-2480</a>
+                    <p>별관 (서수문공원) 주차장을 이용하시면<br />여유롭게 주차장을 이용하실 수 있습니다.</p>
+                </div>
+                <!-- <a href="https://naver.me/GnGvrAfH" class="link-hidden"></a> -->
+
+                <div class="desc">
+
+                    <div class="noti">
+                        <dl class="l">
+                            <dt>서울역 이용 시</dt>
+                            <dd>
+                                <span>KTX서울역 3번출구 (서울역 서부광장 / 롯데마트 후문) 직진 후 한국경제신문사 맞은편 (도보 10분)</span>
+                            </dd>
+                        </dl>
+                        <dl class="l">
+                            <dt>KTX(서울역) 이용 시</dt>
+                            <dd>
+                                <span>KTX서울역 3번출구 (서울역 서부광장방향 / 롯데마트 후문) → 서대문 06번 탑승 → 한국경제 신문사 건너편 하차 (한 정거장)</span>
+                            </dd>
+                        </dl>
+                        <dl class="l">
+                            <dt>지하철 이용 시</dt>
+                            <dd>
+                                <span>[2,5호선] 충정로역 4번 출구 (도보 5분)</span>
+                                <span>[1,4호선] 서울역(KTX 기차역) / 서울역 서부광장 방향 (도보 10분)</span>
+                            </dd>
+                        </dl>
+                        <dl class="l">
+                            <dt>버스 이용 시</dt>
+                            <dd>
+                                <span>[마을버스] 서대문 06번</span>
+                                <span>[지선] 7011, 7013A, 7013B, 7017, 7021, 7024</span>
+                                <span>[간선] 103, 150, 172, 173, 261, 262, 370, 463, 472, 503, 603, 604, 701, 704, 708, 750A, 750B</span>
+                                <span>[광역] 1000인천, 1100인천, 1101인천, 1200인천, 1300인천, 1301인천, 1302인천, 1400인천, 1500인천, 1601인천</span>
+                            </dd>                    
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 게좌번호 -->
+        <div class="section-account">
+            <button class="button-account l" data-type="groom">
+                <div class="text">신랑 측 마음 전하실 곳</div>
+            </button>
+            <button class="button-account l" data-type="bride">
+                <div class="text">신부 측 마음 전하실 곳</div>
+            </button>
+            <button class="button-share l">
+                <span>카카오톡으로 공유하기</span>
+            </button>
     
-    <script>
-    $(document).ready(function(){
+        </div>
+    </div>
+    <!-- 계좌 레이어 -->
+    <div class="overlay-layer layer-account layer-account-bride">
+        <button class="button-close-layer bg-layer" data-type="account-bride"></button>
+        <div class="layer-inner">
+            <div class="wrap">
+                <div class="content">
+                    <div class="row">
+                        <p class="title">신부 혼주 계좌</p>
+                        <button class="button-copy" data-clipboard-text="48604465601010">복사하기</button>
+                    </div>
+                    <div class="desc">
+                        기업은행 (예금주 : 임채홍)<br />
+                        486-044656-01-010
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <p class="title">신부 계좌</p>
+                        <button class="button-copy" data-clipboard-text="3333073308017">복사하기</button>
+                    </div>
+                    <div class="desc">
+                        카카오뱅크 (예금주 : 임하연)<br />
+                        3333-07-3308017
+                    </div>
+                </div>
+            </div>
+            <button class="button-close-layer" data-type="account-bride">
+                <span>닫기</span>
+            </button>
+        </div>
+    </div>
+    <div class="overlay-layer layer-account layer-account-groom">
+        <button class="button-close-layer bg-layer" data-type="account-groom"></button>
+        <div class="layer-inner">
+            <div class="wrap">
+                <div class="content">
+                    <div class="row">
+                        <p class="title">신랑 혼주 계좌</p>
+                        <button class="button-copy" data-clipboard-text="61121002294593">복사하기</button>
+                    </div>
+                    <div class="desc">
+                        우체국 (예금주 : 박동철)<br />
+                        611210-02-294593
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <p class="title">신랑 혼주 계좌</p>
+                        <button class="button-copy" data-clipboard-text="61121002306249">복사하기</button>
+                    </div>
+                    <div class="desc">
+                        우체국 (예금주 : 정낭경)<br />
+                        611210-02-306249
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <p class="title">신랑 계좌</p>
+                        <button class="button-copy" data-clipboard-text="45410101159486">복사하기</button>
+                    </div>
+                    <div class="desc">
+                        국민은행 (예금주 : 박창윤)<br />
+                        45410101159486
+                    </div>
+                </div>
+            </div>
+            <button class="button-close-layer" data-type="account-groom">
+                <span>닫기</span>
+            </button>
+        </div>
+    </div>
+    <div class="overlay-layer layer-gallery">
+        <div class="layer-inner">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../resources/images/slide-1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-4.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-5.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-6.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-7.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-8.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-9.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-10.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-11.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-12.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-13.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-14.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-15.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-16.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-17.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../resources/images/slide-18.jpg" alt=""></div>
 
-        var height = window.innerHeight;
-        alert("first height " + height);
-        var a = setTimeout(function() {
-            $(window).scrollTop(-1);
-            resize();
-        },  500); // Don't lower more than 500ms, otherwise there will be animation-problems with the  Safari toolbar
-
-
-
-        var resize = function() {
-            if(window.innerHeight != height) {
-                height = window.innerHeight;
-                alert("second height " + height);
-                $('.wrap').css('height', height + 'px');
-            }
-    };})
-    </script>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <button class="button-close-layer bg-layer" data-type="gallery"></button>
+        <span class="button-close-layer icon-close" data-type="gallery"></span>
+    </div>
+    <div class="overlay-layer layer-toast">
+        <div class="layer-inner">
+            계좌번호가 복사되었습니다.
+        </div>
+    </div>
+    <!-- <div id="map" style="width:100%;height:400px;"></div> -->
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js" integrity="sha512-WFeBxQtM/n6U8/Nd0Hz/Hq7n75NImbzM7Kc0y/4kE0kHnH1Be+nzm32RwbGoDsW1D9fjjPvI8LIWxLrZhxew/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js" integrity="sha512-WFeBxQtM/n6U8/Nd0Hz/Hq7n75NImbzM7Kc0y/4kE0kHnH1Be+nzm32RwbGoDsW1D9fjjPvI8LIWxLrZhxew/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qzm5k33xr1"></script> -->
+    <script src="./resources/scripts/main.js"></script>
 </body>
 </html>
